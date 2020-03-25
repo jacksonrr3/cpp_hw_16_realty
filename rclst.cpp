@@ -3,14 +3,12 @@
 #include <dlib/matrix.h>
 #include <dlib/svm_threaded.h>
 #include <dlib/clustering.h>
-
 #include <string>
 #include <vector>
 #include <iostream>
 #include <fstream>
 
 using namespace dlib;
-
 using sample_type = matrix<double, crit_num, 1>;
 
 using linear_kernel_type = linear_kernel<sample_type>;
