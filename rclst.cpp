@@ -1,4 +1,3 @@
-#pragma once
 
 #include <dlib/matrix.h>
 #include <dlib/svm_threaded.h>
