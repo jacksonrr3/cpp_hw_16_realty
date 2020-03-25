@@ -15,8 +15,6 @@
 
 using namespace dlib;
 
-const int crit_num = 7;
-
 using sample_type = matrix<double, crit_num, 1>;
 
 using linear_kernel_type = linear_kernel<sample_type>;
@@ -28,15 +26,12 @@ int main(int argc, char* argv[])
     try
     {
         std::map<std::size_t, std::vector<sample_type>> samples;
-        //std::vector<sample_type> initial_centers;
-       // std::vector<double> labels;
 
-        int clusters;
+     //   int clusters;
         std::string modelfname;
 
         if (argc == 2)
         {
-            //clusters = atoi(argv[1]);
             modelfname = argv[1];
         }
         else {
@@ -55,22 +50,19 @@ int main(int argc, char* argv[])
             std::cout << "Error read model fail.\n";
             return 1;
         }
-        in_file >> clusters;
-        std::getline(in_file, input_string);
+      //  in_file >> clusters;
+      //  std::getline(in_file, input_string);
 
         //read data from file
         while (std::getline(in_file, input_string)) {
             std::stringstream ss(input_string);
-            
             for (int i = 0; i < 8; i++) {
                 std::getline(ss, token, ';');
-             //   if (token == "") { token = "0.0";
                 if (i != 7) {
                     m(i) = std::stod(token);
                 }
                 else {
                     samples[std::stod(token)].push_back(m);
-                  //  m(i) = std::stod(token);
                 }
             }
         }
@@ -80,8 +72,8 @@ int main(int argc, char* argv[])
 
         std::string request;
         while(std::getline(std::cin, request)) {
-         // std::stringstream ss_req(request);
-            std::stringstream ss_req("86.116781;55.335492;2;4326901.00;54.00;7.00;1\n");
+            std::stringstream ss_req(request);
+           // std::stringstream ss_req("86.116781;55.335492;2;4326901.00;54.00;7.00;1\n");
             for (int i = 0; i < 7; i++) {
                 std::getline(ss_req, token, ';');
                 std::cout << i << std::endl;
