@@ -15,7 +15,7 @@
 
 using namespace dlib;
 
-using sample_type = matrix<double, crit_num, 1>;
+using sample_type = matrix<double, 7, 1>;
 using linear_kernel_type = linear_kernel<sample_type>;
 using ovo_trainer_type = one_vs_one_trainer<any_trainer<sample_type>>;
 using ovo_df_type = one_vs_one_decision_function<ovo_trainer_type, decision_function<linear_kernel_type>>;
