@@ -71,7 +71,6 @@ int main(int argc, char* argv[])
 
             samples.push_back(m);
         }
-        
 
         kcentroid<linear_kernel_type> kc(linear_kernel_type(), 0.01, 8);
         kkmeans<linear_kernel_type> test(kc);
