@@ -11,8 +11,6 @@
 
 using namespace dlib;
 
-const int crit_num = 7;
-
 using sample_type = matrix<double, crit_num, 1>;
 
 using linear_kernel_type = linear_kernel<sample_type>;
@@ -35,27 +33,24 @@ int main(int argc, char* argv[])
             clusters = atoi(argv[1]);
             modelfname = argv[2];
             if (clusters < 3){
-                std::cout << "enter more clusters! \n";
+                std::cout << "need more clusters! \n";
                 return 1;
             }
         }
         else{
-            std::cerr << "rclst <nclusters> <modelfname>\n";
+            std::cerr << "rclst <clusters> <modelfname>\n";
             return 1;
         }
 
-        std::ifstream if_file;
-        if_file.open("int_test.csv");
+       // std::ifstream if_file;
+       // if_file.open("int_test.csv");
 
         std::string input_string;
         sample_type m;
-        while (std::getline(if_file, input_string)) {
-            //while (std::getline(std::cin, input_string)) {
+       // while (std::getline(if_file, input_string)) {
+        while (std::getline(std::cin, input_string)) {
             std::stringstream ss(input_string);
             std::string token;
-
-           // std::cout << input_string << std::endl;
-
             for (int i = 0; i < 8; i++) {
                 std::getline(ss, token, ';');
                 if (token == "") {
