@@ -84,7 +84,7 @@ int main(int argc, char* argv[])
         test.train(samples, initial_centers);
 
         std::ofstream out_file(modelfname + ".csv");
-        out_file << clusters << "\n";
+       // out_file << clusters << "\n";
         for (auto& s : samples) {
             double l = test(s);
             out_file << std::to_string(s(0)) << ";" <<
