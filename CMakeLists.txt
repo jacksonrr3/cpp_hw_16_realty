@@ -4,6 +4,8 @@ project(realty VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
 find_package(Threads REQUIRED)
 
+find_package(dlib REQUIRED)
+
 add_executable(rclst rclst.cpp)
 
 add_executable(rclss rclss.cpp)
