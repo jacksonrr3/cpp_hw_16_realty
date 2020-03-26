@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
     {
         std::map<std::size_t, std::vector<sample_type>> samples;
 
-     //   int clusters;
+     // int clusters;
         std::string modelfname;
 
         if (argc == 2)
@@ -42,14 +42,11 @@ int main(int argc, char* argv[])
         std::string token;
         sample_type m;
  
-
         in_file.open(modelfname + ".csv");
         if (!in_file) {
             std::cout << "Error read model fail.\n";
             return 1;
         }
-      //  in_file >> clusters;
-      //  std::getline(in_file, input_string);
 
         //read data from file
         while (std::getline(in_file, input_string)) {
@@ -74,7 +71,6 @@ int main(int argc, char* argv[])
            // std::stringstream ss_req("86.116781;55.335492;2;4326901.00;54.00;7.00;1\n");
             for (int i = 0; i < 7; i++) {
                 std::getline(ss_req, token, ';');
-                std::cout << i << std::endl;
                 m(i) = std::stod(token);
             }
 
@@ -98,9 +94,7 @@ int main(int argc, char* argv[])
                     std::to_string(s(5)) << ";" <<
                     std::to_string(s(6)) << std::endl;
             }
-
         }
-
     }
     catch (std::exception & e)
     {
