@@ -17,8 +17,8 @@ install:
   - cmake --build .
   - cd ..
 script:
-  - mkdir ${BUILD_DIR}
-  - cd ${BUILD_DIR}
+  - mkdir build
+  - cd build
   - cmake ..
   - cmake --build .
   - cmake --build . --target package
