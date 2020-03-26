@@ -6,22 +6,17 @@ addons:
     - sourceline: "deb http://us.archive.ubuntu.com/ubuntu/ xenial main universe"
     - ubuntu-toolchain-r-test
     packages:
-    - gcc-8
-    - g++-8
+    - gcc-7
+    - g++-7
+    - libboost-all-dev
     - libopenblas-dev
     - libdlib-dev
-install:
-  - git clone https://github.com/davisking/dlib.git
-  - cd dlib
-  - cmake .
-  - cmake --build .
-  - cd ..
 script:
-  - mkdir build
-  - cd build
-  - cmake ..
-  - cmake --build .
-  - cmake --build . --target package
+- export CC=gcc-7
+- export CXX=g++-7
+- cmake .
+- cmake --build .
+- cmake --build . --target package
 deploy:
   provider: script
   skip_cleanup: true
