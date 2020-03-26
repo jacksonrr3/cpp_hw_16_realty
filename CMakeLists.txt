@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.2)
 
 project(realty VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
 
+include_directories(dlib)
+link_directories(dlib/dlib)
+
 find_package(Threads REQUIRED)
 
 add_executable(rclst rclst.cpp)
