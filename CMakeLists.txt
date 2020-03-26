@@ -8,7 +8,13 @@ add_executable(rclst rclst.cpp)
 
 add_executable(rclss rclss.cpp)
 
-set_target_properties(rclst rclss PROPERTIES
+set_target_properties(rclst PROPERTIES
+  CXX_STANDARD 14
+  CXX_STANDARD_REQUIRED ON
+  COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
+)
+
+set_target_properties(rclss PROPERTIES
   CXX_STANDARD 14
   CXX_STANDARD_REQUIRED ON
   COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
@@ -24,7 +30,8 @@ target_link_libraries(rclst
                       openblas
                       ${CMAKE_THREAD_LIBS_INIT})
 
-install(TARGETS rclst rclss RUNTIME DESTINATION bin)
+install(TARGETS rclst RUNTIME DESTINATION bin)
+install(TARGETS rclss RUNTIME DESTINATION bin)
 
 set(CPACK_PACKAGE_VERSION_MAJOR "${PROJECT_VERSION_MAJOR}")
 set(CPACK_PACKAGE_VERSION_MINOR "${PROJECT_VERSION_MINOR}")
