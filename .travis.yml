@@ -10,12 +10,18 @@ addons:
     - g++-8
     - libopenblas-dev
     - libdlib-dev
+install:
+  - git clone https://github.com/davisking/dlib.git
+  - cd dlib
+  - cmake .
+  - cmake --build .
+  - cd ..
 script:
-- export CC=gcc-8
-- export CXX=g++-8
-- cmake .
-- cmake --build .
-- cmake --build . --target package
+  - mkdir ${BUILD_DIR}
+  - cd ${BUILD_DIR}
+  - cmake ..
+  - cmake --build .
+  - cmake --build . --target package
 deploy:
   provider: script
   skip_cleanup: true
