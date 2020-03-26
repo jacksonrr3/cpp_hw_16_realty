@@ -1,9 +1,6 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.5)
 
 project(realty VERSION 0.0.$ENV{TRAVIS_BUILD_NUMBER})
-
-include_directories(dlib)
-link_directories(dlib/dlib)
 
 find_package(Threads REQUIRED)
 
@@ -25,13 +22,11 @@ set_target_properties(rclss PROPERTIES
 
 target_link_libraries(rclst 
                       dlib
-                      openblas 
-                      ${CMAKE_THREAD_LIBS_INIT})
+                      openblas)
 
-target_link_libraries(rclst 
+target_link_libraries(rclss 
                       dlib
-                      openblas
-                      ${CMAKE_THREAD_LIBS_INIT})
+                      openblas)
 
 install(TARGETS rclst RUNTIME DESTINATION bin)
 install(TARGETS rclss RUNTIME DESTINATION bin)
